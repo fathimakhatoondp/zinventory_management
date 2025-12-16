@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:smartfield="sap.ui.comp.smartfield"
+    xmlns:smartform="sap.ui.comp.smartform"
+>
+    <Dialog
+        id="addEditDialogId"
+        contentHeight="800px"
+        contentWidth="800px"
+        draggable="true"
+        title="Add Product"
+    >
+        <!-- Add Product SmartForm -->
+        <smartform:SmartForm id="addProductSmartFormId" editable="true">
+            <smartform:layout>
+                <!-- <smartform:ColumnLayout
+                    columnsM="2"
+                    columnsL="2"
+                    columnsXL="3"
+                /> -->
+            </smartform:layout>
+
+            <smartform:Group>
+                <!-- Product ID -->
+                <smartform:GroupElement label="ID">
+                    <Input id="addIdInputId" placeholder="Enter Product ID" required="true"/>
+                </smartform:GroupElement>
+
+                <!-- Product Name -->
+                <smartform:GroupElement label="Name">
+                    <!-- <ComboBox items='{path: "/Products"}'>
+                        <core:Item key="{ID}" text="{Name}"/>
+                    </ComboBox> -->
+                    <Input id="addNameInputId" placeholder="Enter Product Name"/>
+                </smartform:GroupElement>
+
+                <!-- Product Desription -->
+                <smartform:GroupElement label="Description">
+                    <!-- <ComboBox items="{path:'/Products'}">
+                        <core:Item key="ID" text="Description"></core:Item>
+                    </ComboBox> -->
+                    <Input id="addDescriptionInputId" placeholder="Enter Product Description" />
+                </smartform:GroupElement>
+
+                <!-- Product Release Date -->
+                <smartform:GroupElement label="Release Date">
+                    <DatePicker id="addReleaseDateInputId" required="true" displayFormat="dd.MM.YYYY"></DatePicker>
+                </smartform:GroupElement>
+
+                <!-- Product Rating -->
+                <smartform:GroupElement label="Rating">
+                    <!-- <smartfield:SmartField
+                        textLabel="Rating"
+                        value="{Rating}"
+                    /> -->
+                    <Input id="addRatingInputId" placeholder="Enter Product Rating" required="true" />
+                </smartform:GroupElement>
+
+                <!-- Product Price -->
+                <smartform:GroupElement label="Price">
+                    <!-- <smartfield:SmartField
+                        textLabel="Price"
+                        value="{Price}"
+                    /> -->
+                    <Input id="addPriceInputId" placeholder="Enter Product Price" required="true" />
+                </smartform:GroupElement>
+
+                <!-- Product DiscontinuedDate -->
+                <!-- <smartform:GroupElement>
+                    <smartfield:SmartField
+                        textLabel="Discontinued Date"
+                        value="{DiscontinuedDate}"
+                    />
+                </smartform:GroupElement> -->
+            </smartform:Group>
+        </smartform:SmartForm>
+
+
+        <endButton>
+            <Button
+                id="addEditFragmentCloseButtonId"
+                type="Reject"
+                icon="sap-icon://cancel"
+                text="Close"
+                press="onPressCloseInAddEditFragment"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

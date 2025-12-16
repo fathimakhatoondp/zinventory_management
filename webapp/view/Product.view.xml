@@ -1,0 +1,85 @@
+
+<mvc:View xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" controllerName="com.sap.zinventorymanagement.controller.Product"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+    <smartfilterbar:SmartFilterBar id="smartFilterBarId" entitySet="Products" enableBasicSearch="true">
+        <smartfilterbar:controlConfiguration>
+            <smartfilterbar:ControlConfiguration id="productIdFilterId" key="ID" label="ID" index="0" visibleInAdvancedArea="true"></smartfilterbar:ControlConfiguration>
+            <smartfilterbar:ControlConfiguration id="productNameFilterId" key="Name" label="Name" index="1" visibleInAdvancedArea="true"></smartfilterbar:ControlConfiguration>
+            <smartfilterbar:ControlConfiguration id="productReleaseDateFilterId" key="ReleaseDate" label="Release Date" index="2" visibleInAdvancedArea="true"></smartfilterbar:ControlConfiguration>
+            <smartfilterbar:ControlConfiguration id="productRatingFilterId" key="Rating" label="Rating" index="3" visibleInAdvancedArea="true"></smartfilterbar:ControlConfiguration>
+            <smartfilterbar:ControlConfiguration id="productPriceFilterId" key="Price" label="Price" index="4" visibleInAdvancedArea="true"></smartfilterbar:ControlConfiguration>
+        </smartfilterbar:controlConfiguration>
+    </smartfilterbar:SmartFilterBar>
+    <smarttable:SmartTable id="productsSmartTableId" entitySet="Products" smartFilterId="smartFilterBarId"
+     enableAutoBinding="true" tableType="ResponsiveTable">
+        <smarttable:customToolbar>
+            <OverflowToolbar>
+                <Title text="Products Information" />
+                <ToolbarSpacer />
+                <Button id="addProductButtonId" type="Emphasized" text="Add" icon="sap-icon://add" press="onPressAdd"/>
+            </OverflowToolbar>
+        </smarttable:customToolbar>
+        <Table id="responsiveTableId"  mode="MultiSelect">
+            <columns>
+                <Column id="productIdColumnId" minScreenWidth="Tablet">
+                    <Text text="ID" />
+                    <customData>
+                        <core:CustomData key="p13nData" value='\{"filterProperty":"ID", "sortProperty":"ID", "leadingProperty":"ID",
+                         "columnKey":"ID", "columnIndex":"0", "autoColumnWidth":\{"visibleProperty":"ID"}}' />
+                    </customData>
+                </Column>
+                <Column id="productNameColumnId" minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Name" />
+                    <customData>
+                        <core:CustomData key="p13nData" value='\{"filterProperty":"Name", "sortProperty":"Name", "leadingProperty":"Name",
+                         "columnKey":"Name", "coulmnIndex":"1", "autoColumnWidth":\{"visibleProperty":"Name"}}' />
+                    </customData>
+                </Column>
+                <!-- <Column id="productDescriptionColumnId" minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Description" />
+                    <customData>
+                        <core:CustomData key="p13nData" value='\{"filterProperty":"Description", "sortProperty":"Description", 
+                        "leadingProperty":"Description", "columnKey":"Description", "columnIndex":"2", "autoColumnWidth":\{"visibleProperty":"Description"}}' />
+                    </customData>
+                </Column>
+                <Column id="productReleaseDateColumnId" minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Release Date" />
+                    <customData>
+                        <core:CustomData key="p13nData" value='\{"filterProperty":"ReleaseDate", "sortProperty":"ReleaseDate",
+                         "leadingProperty":"ReleaseDate", "columnKey":"ReleaseDate", "columnIndex":"3", "autoColumnWidth":\{"visibleProperty":"ReleaseDate"}}' />
+                    </customData>
+                </Column>
+                <Column id="productRatingColumnId" minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Rating" />
+                    <customData>
+                        <core:CustomData key="p13nData" value='\{"filterProperty":"Rating", "sortProperty":"Rating",
+                         "leadingProperty":"Rating", "columnKey":"Rating", "columnIndex":"4", "autoColumnWidth":\{"visibleProperty":"Rating"}}' />
+                    </customData>
+                </Column>
+                <Column id="productPriceColumnId" minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Price" />
+                    <customData>
+                        <core:CustomData key="p13nData" value='\{"filterProperty":"Price", "sortProperty":"Price",
+                         "leadingProperty":"Price", "columnKey":"Price", "columnIndex":"5", "autoColumnWidth":\{"visibleProperty":"Price"}}' />
+                    </customData>
+                </Column> -->
+            </columns>
+            <items>
+                <ColumnListItem type="Active" press="onPressRow" >
+                    <cells>
+                        <Text text="{ID}"></Text>
+                        <Text text="{Name}"></Text>
+                        <!-- <Text text="{Description}"></Text>
+                        <Text text="{ReleaseDate}"></Text>
+                        <Text text="{Rating}"></Text>
+                        <Text text="{Price}"></Text> -->
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </smarttable:SmartTable>
+    </Page>
+</mvc:View>
