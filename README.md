@@ -39,4 +39,16 @@ An SAP Fiori application.
 
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
 
+## Application Output
 
+### Initial View
+[![IV](docs/output_screens/AddItem.png)]
+
+### Add Item
+[![AI](docs/output_screens/AddItem.png)]
+
+### Item Press
+[![IP](docs/output_screens/RowClick.png)]
+
+### Custom ID Filter
+[![IDFilter](docs/output_screens/Custom-Filter-ID.png)]
